@@ -46,8 +46,10 @@
 
 				//buy product (decrease quantity)
 				factory.buy = function(product, callback) {
-					products[products.indexOf(product)].quantity--;
-					callback(products);
+					if (products[products.indexOf(product)].quantity > 0) {
+						products[products.indexOf(product)].quantity--;
+						callback(products);
+					}
 				}
 
 				return factory;
